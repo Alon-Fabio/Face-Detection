@@ -1,0 +1,10 @@
+.Image {
+
+    margin: 0 auto;
+}
+.Image>img {
+    border: dodgerblue 0.2rem solid;
+    border-radius: 2rem;
+    max-width:80%;
+    max-height:80%;
+}

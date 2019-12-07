@@ -1,0 +1,19 @@
+.Fetcher {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 1rem;
+}
+
+.Fetcher>input {
+    height: 1.5rem;
+    width: 50%;
+    border-radius: 10px 0 0 10px;
+}
+.Fetcher>button {
+    display: inline-block;
+    border-radius: 0 10px 10px 0;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 4px;
+}

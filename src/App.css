@@ -1,22 +1,25 @@
 .App {
   text-align: center;
+  
+  height: 100vh;
+  
 }
-
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.TopNav {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  
 }
-
-.App-link {
-  color: #09d3ac;
+.FetchImageBox {
+  display: flex;
+  flex-flow: column;
+  margin: 0 auto;
+  height: 55vh;
+  width: 50vw;
+  border-radius: 20px;
+  box-shadow: black 2px 2px 5px 1.5px, inset rgb(9, 2, 49) -2px -2px 5px 1.5px;
+  background:
+  linear-gradient(135deg, #708090 21px, #d9ecff 22px, #d9ecff 24px, transparent 24px, transparent 67px, #d9ecff 67px, #d9ecff 69px, transparent 69px),
+  linear-gradient(225deg, #708090 21px, #d9ecff 22px, #d9ecff 24px, transparent 24px, transparent 67px, #d9ecff 67px, #d9ecff 69px, transparent 69px)0 32px;
+  background-color:#708090;
+  background-size: 32px 64px;
 }

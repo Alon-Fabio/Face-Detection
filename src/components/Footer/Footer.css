@@ -1,0 +1,17 @@
+footer {
+    position: fixed;
+    height: 10vh;
+    width: 100%;
+    background-color: gray;
+    bottom: 0;
+    
+}
+.FooterContainer{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Credit {
+    font-size: 0.5rem;
+}

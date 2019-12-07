@@ -1,0 +1,24 @@
+.Navigetion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px;
+    background: radial-gradient(circle, rgba(63,251,85,1) 0%, rgba(70,89,252,1) 100%);
+    border-radius: 20px;
+    
+    width: 150px;
+    height: 150px;
+    box-shadow: black 2px 2px 5px 1.5px, inset rgb(9, 2, 49) -2px -2px 5px 1.5px;
+}
+
+.NavEl {
+    height: 55px;
+
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.NavEl:hover {
+    transition : color 0.1s;
+    color: gray;
+}
