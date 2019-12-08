@@ -1,10 +1,23 @@
 .Image {
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 0 auto;
+    height: 50vh;
+    width: 50vw;
+    border-radius: 0 0 20px 20px;
+    box-shadow: black 2px 2px 5px 1.5px, inset rgb(9, 2, 49) -2px -2px 5px 1.5px;
+    background:
+    linear-gradient(135deg, #708090 21px, #d9ecff 22px, #d9ecff 24px, transparent 24px, transparent 67px, #d9ecff 67px, #d9ecff 69px, transparent 69px),
+    linear-gradient(225deg, #708090 21px, #d9ecff 22px, #d9ecff 24px, transparent 24px, transparent 67px, #d9ecff 67px, #d9ecff 69px, transparent 69px)0 32px;
+    background-color:#708090;
+    background-size: 32px 64px;
+    min-width:300px;
+    min-height:300px;
 }
 .Image>img {
     border: dodgerblue 0.2rem solid;
     border-radius: 2rem;
-    max-width:80%;
-    max-height:80%;
+    max-width:90%;
+    max-height:90%;
 }

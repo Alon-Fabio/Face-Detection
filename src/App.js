@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{useState} from 'react';
 import Navigetion from './components/Navigetion/Navigetion';
 import Logo from './components/Logo/Logo';
 import Fetcher from './components/Fetcher/Fetcher';
@@ -7,6 +7,10 @@ import Footer from './components/Footer/Footer';
 import './App.css';
 
 function App() {
+
+  //const [FindPic, setFindPic] = useState;
+  //const [PicUrl, setPicUrl] = useState;
+
   return (
     <div className="App">
       <div className="TopNav">
