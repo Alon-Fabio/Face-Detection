@@ -1,11 +1,13 @@
 .Logo {
-    
     margin: 15px;
-    padding: 8px;
+    padding: 10px;
     background: radial-gradient(circle, rgba(63,251,85,1) 0%, rgba(70,89,252,1) 100%);
     border-radius: 20px;
-    margin-left: 20px;
     width: 150px;
     height: 150px;
     box-shadow: black 2px 2px 5px 1.5px, inset rgb(9, 2, 49) -2px -2px 5px 1.5px;
+}
+
+.Logo img {
+    margin: 10px;
 }

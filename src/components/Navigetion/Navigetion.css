@@ -1,14 +1,15 @@
 .Navigetion {
+    z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 15px;
+    margin: 0 15px;
     padding: 8px;
-    background: radial-gradient(circle, rgba(63,251,85,1) 0%, rgba(70,89,252,1) 100%);
-    border-radius: 20px;
-    
+    background: #132068;
+    border-radius: 0 0 20px 20px;
+    color: darkgray;
     width: 150px;
-    height: 150px;
+    height: 75px;
     box-shadow: black 2px 2px 5px 1.5px, inset rgb(9, 2, 49) -2px -2px 5px 1.5px;
 }
 

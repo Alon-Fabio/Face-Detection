@@ -5,6 +5,7 @@ import Logo from './components/Logo/Logo';
 import Fetcher from './components/Fetcher/Fetcher';
 import Image from './components/Image/Image';
 import Footer from './components/Footer/Footer';
+import PicLibrary from './components/PicLibrary/PicLibrary'
 import './App.css';
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
 
   return (
     <div className="App">
+      <PicLibrary />
       <Particles className="Particles" 
       params={ParticlesParams}
       />

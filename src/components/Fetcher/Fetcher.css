@@ -8,27 +8,27 @@
     width: 50vw;
     border-radius: 20px 20px 0 0;
     box-shadow: black 2px 2px 5px 1.5px, inset rgb(9, 2, 49) -2px -2px 5px 1.5px;
-    background:
-    linear-gradient(135deg, #132068 21px, #d9ecff 22px, #d9ecff 24px, transparent 24px, transparent 67px, #d9ecff 67px, #d9ecff 69px, transparent 69px),
-    linear-gradient(225deg, #132068 21px, #d9ecff 22px, #d9ecff 24px, transparent 24px, transparent 67px, #d9ecff 67px, #d9ecff 69px, transparent 69px)0 32px;
-    background-color:#132068;
-    background-size: 32px 64px;
+    background:  #132068;
 }
 
 .Fetcher>input {
     height: 1.5rem;
     width: 50%;
     border-radius: 10px 0 0 10px;
-    border: #708090 4px solid;
+    border: #708090 4px inset;
+    border-bottom-color: rgb(112, 128, 144);
     border-right: none;
 }
 .Fetcher>button {
-    border-color: #708090;
-    border-width: 4px;
-    display: inline-block;
+    background: #708090;
+    border: #708090 4px inset ;
+    border-left: none;
     border-radius: 0 10px 10px 0;
     font-weight: bold;
-    font-size: 1rem;
     padding: 4px;
     height: 2rem;
+}
+.Fetcher>button:active {
+    border: rgb(9, 2, 49) 5px solid;
+    border-left: rgb(9, 2, 49) 2px inset;
 }
