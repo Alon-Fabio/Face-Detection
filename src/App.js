@@ -12,7 +12,8 @@ function App() {
 
   const [FindPic, setFindPic] = useState();
   const [PicUrl, setPicUrl] = useState();
-
+  const [PicArr, setPicArr] = useState([]);
+//Particle is a background, this are his configurations.
   const ParticlesParams = {
       "particles": {
           "number": {
@@ -37,12 +38,14 @@ function App() {
   }
   function ChangePicUrl() {
     setFindPic(PicUrl);
+    setPicArr(PicArr => [...PicArr, PicUrl])
     console.log(PicUrl);
+    console.log(PicArr);
   }
-
+  
   return (
     <div className="App">
-      <PicLibrary />
+      <PicLibrary PictureArray={PicArr}/>
       <Particles className="Particles" 
       params={ParticlesParams}
       />

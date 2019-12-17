@@ -1,8 +1,27 @@
 .PicLibrary {
     position: fixed;
-    right: 0;
-    width: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: column wrap;
+    left: 0;
+    width: 15%;
     height: 93%;
     background: floralwhite;
+    padding-top: 250px;
 
+}
+
+.PicContainer {
+    padding: 5px;
+    background: grey;
+    border-radius: 20px;
+    max-width: 90%;
+    max-height: 90%;
+    box-shadow: black 2px 2px 5px 1.5px, inset rgb(9, 2, 49) -2px -2px 5px 1.5px;
+}
+
+.PicContainer img {
+    max-width: 90%;
+    max-height: 90%;
 }

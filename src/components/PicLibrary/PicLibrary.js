@@ -1,17 +1,22 @@
 import React from 'react';
 import './PicLibrary.css';
-import Tilt from 'react-tilt'
+import PicArrElement from '../PicArrElement/PicArrElement';
 
-function PicLibrary() {
-  return (
+function PicLibrary({PictureArray}) {
+    return (
         <div className="PicLibrary">
-            <Tilt className="Tilt options={{ max : 55 }} style={{ height: 250, width: 250 }}">
-                <div className="Tilt-inner">
-                    <p>{"test"}</p>
-                </div>
-            </Tilt>
+            {
+                PictureArray.map((pic, i) => {
+                    return (
+                        <PicArrElement
+                        AnPictureArray={pic}
+                        />
+                    )
+                })
+            }
         </div>
-  );
+    );
+  
 }
 
 export default PicLibrary;
