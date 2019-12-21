@@ -1,8 +1,7 @@
 .Logo {
-    z-index: 1;
     margin: 15px;
     padding: 10px;
-    background: radial-gradient(circle, rgba(63,251,85,1) 0%, rgba(70,89,252,1) 100%);
+    background: radial-gradient(circle, rgb(191, 106, 248) 0%, rgba(2,61,156,1) 100%);
     border-radius: 20px;
     width: 150px;
     height: 150px;

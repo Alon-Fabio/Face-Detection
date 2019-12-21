@@ -1,5 +1,6 @@
 import React ,{useState} from 'react';
 import Particles from 'react-particles-js';
+import Clarifai  from 'clarifai';
 import Navigetion from './components/Navigetion/Navigetion';
 import Logo from './components/Logo/Logo';
 import Fetcher from './components/Fetcher/Fetcher';
@@ -13,6 +14,12 @@ function App() {
   const [FindPic, setFindPic] = useState();
   const [PicUrl, setPicUrl] = useState();
   const [PicArr, setPicArr] = useState([]);
+
+  const app = new Clarifai.App({
+    apiKey: '3634fc260367403ca7e2a34a0b974b91'
+   });
+
+
 //Particle is a background, this are his configurations.
   const ParticlesParams = {
       "particles": {
@@ -36,19 +43,26 @@ function App() {
   function GetInput(e) {
     setPicUrl(e.target.value);
   }
-  function ChangePicUrl() {
+  async function ChangePicUrl() {
     setFindPic(PicUrl);
     setPicArr(PicArr => [...PicArr, PicUrl])
     console.log(PicUrl);
     console.log(PicArr);
+    //API request to Clarefie.
+  //   app.models.predict("a403429f2ddf4b49b307e318f00e528b", PicUrl).then(
+  //   function(response) {
+  //     console.log(response);
+  //   },
+  //   function(err) {
+  //     console.log(err);
+  //   }
+  // );
   }
   
   return (
     <div className="App">
       <PicLibrary PictureArray={PicArr}/>
-      <Particles className="Particles" 
-      params={ParticlesParams}
-      />
+      <Particles className="Particles" params={ParticlesParams}/>
       <div className="TopNav">
         <Logo />
         <Navigetion />

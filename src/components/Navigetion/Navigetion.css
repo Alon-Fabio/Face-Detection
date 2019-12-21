@@ -4,7 +4,7 @@
     justify-content: center;
     margin: 0 15px;
     padding: 8px;
-    background: #132068;
+    background:rgba(2,61,156,1);
     border-radius: 0 0 20px 20px;
     color: darkgray;
     width: 150px;
@@ -20,5 +20,10 @@
 
 .NavEl:hover {
     transition : color 0.1s;
-    color: gray;
+    color: white;
+}
+
+.Navigetion:hover {
+    transition : height 0.5s;
+    height: 120px;
 }

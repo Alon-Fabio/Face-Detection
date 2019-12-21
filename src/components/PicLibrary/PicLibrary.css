@@ -1,27 +1,41 @@
 .PicLibrary {
     position: fixed;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-flow: column wrap;
+    flex-flow: column;
     left: 0;
-    width: 15%;
     height: 93%;
-    background: floralwhite;
-    padding-top: 250px;
+    width: 20%;
+    background:  rgba(2,61,156,1);
 
+}
+
+.LogoPicLibrary {
+    margin: 0 auto;
+}
+
+.PicArrLibrary {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-content: flex-start;
+    overflow: scroll;
+    max-height: 80%;
+    overflow-x: hidden;
 }
 
 .PicContainer {
     padding: 5px;
-    background: grey;
-    border-radius: 20px;
-    max-width: 90%;
-    max-height: 90%;
-    box-shadow: black 2px 2px 5px 1.5px, inset rgb(9, 2, 49) -2px -2px 5px 1.5px;
 }
 
 .PicContainer img {
-    max-width: 90%;
-    max-height: 90%;
+    padding: 5px;
+    background: grey;
+    border-radius: 20px;
+    max-width:150px;
+    max-height:150px;
+    box-shadow: black 2px 2px 5px 1.5px, inset rgb(9, 2, 49) -2px -2px 5px 1.5px;
+}
+
+li {
+    list-style-type:none;
 }

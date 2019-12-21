@@ -2,6 +2,9 @@
   padding: 0;
   margin: 0;
 }
+#root {
+  height: 100vh;
+}
 
 body {
   height: 100vh;
@@ -12,7 +15,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: rgb(53,61,62);
-  background: linear-gradient(225deg, rgba(53,61,62,1) 35%, rgba(2,61,156,1) 100%);
+  background: linear-gradient(225deg, rgb(191, 106, 248) 35%, rgba(2,61,156,1) 100%);
 }
 
 code {
