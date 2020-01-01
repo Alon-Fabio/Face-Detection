@@ -14,6 +14,8 @@ function App() {
   const [FindPic, setFindPic] = useState();
   const [PicUrl, setPicUrl] = useState();
   const [PicArr, setPicArr] = useState([]);
+  const [FaceBoxs, setFaceBoxs] = useState([]);
+  const [PicCounter, setPicCounter] = useState([]);
 
   const app = new Clarifai.App({
     apiKey: '3634fc260367403ca7e2a34a0b974b91'
@@ -38,26 +40,52 @@ function App() {
               }
           }
       }
-  }
+  };
 
   function GetInput(e) {
     setPicUrl(e.target.value);
-  }
-  async function ChangePicUrl() {
+  };
+
+  function UpdateFaceBox(FaceBoxs,Boxs) {
+    setFaceBoxs((FaceBoxs)=>[...FaceBoxs, Boxs]);
+    
+    console.log(FaceBoxs);
+  };
+
+  function ShowFaceBoxes() {
+    console.log(FaceBoxs);
+  };  
+  
+  function ChangePicUrl() {
     setFindPic(PicUrl);
     setPicArr(PicArr => [...PicArr, PicUrl])
-    console.log(PicUrl);
-    console.log(PicArr);
-    //API request to Clarefie.
-  //   app.models.predict("a403429f2ddf4b49b307e318f00e528b", PicUrl).then(
-  //   function(response) {
-  //     console.log(response);
-  //   },
-  //   function(err) {
-  //     console.log(err);
-  //   }
-  // );
-  }
+    
+    // API request to Clarefie.
+    app.models.predict("a403429f2ddf4b49b307e318f00e528b", PicUrl).then(
+    function(response) {
+      if (response.status.code !== 10000) {
+        console.log("10000");
+        alert('somthing went wrong.. please check your URL and try again');
+      }
+      const ApiBounding_box = response.rawData.outputs[0].data.regions;
+      const Boxs = ApiBounding_box.map((BoxPoints)=>{
+        return ([
+         BoxPoints.region_info.bounding_box.top_row,
+         BoxPoints.region_info.bounding_box.left_col,
+         BoxPoints.region_info.bounding_box.bottom_row,
+         BoxPoints.region_info.bounding_box.right_col
+       ]);
+     });
+      
+      UpdateFaceBox(Boxs);
+    },
+    function(err) {
+      console.log(err);
+    }
+  ).catch(err=>console.log(err));
+  };
+
+
   
   return (
     <div className="App">
@@ -66,6 +94,7 @@ function App() {
       <div className="TopNav">
         <Logo />
         <Navigetion />
+        <button onClick={ShowFaceBoxes}><h1>{"FaceBoxes"}</h1></button>
       </div>
       <div className="FetchImageBox">
         <Fetcher GetInput={GetInput} ChangePicUrl={ChangePicUrl}/>
