@@ -1,4 +1,4 @@
-import React ,{useState} from 'react';
+import React ,{useState,useEffect} from 'react';
 import Particles from 'react-particles-js';
 import Clarifai  from 'clarifai';
 import Navigetion from './components/Navigetion/Navigetion';
@@ -23,6 +23,7 @@ function App() {
 
 
 //Particle is a background, this are his configurations.
+//This started to raise errors...
   const ParticlesParams = {
       "particles": {
           "number": {
@@ -46,10 +47,8 @@ function App() {
     setPicUrl(e.target.value);
   };
 
-  function UpdateFaceBox(FaceBoxs,Boxs) {
-    setFaceBoxs((FaceBoxs)=>[...FaceBoxs, Boxs]);
-    
-    console.log(FaceBoxs);
+  function UpdateFaceBox(Boxs) {
+    setFaceBoxs((prevFaceBoxs)=>[prevFaceBoxs = Boxs]);
   };
 
   function ShowFaceBoxes() {
@@ -84,7 +83,7 @@ function App() {
     }
   ).catch(err=>console.log(err));
   };
-
+  useEffect(()=>console.log(FaceBoxs),[FaceBoxs]);
 
   
   return (
@@ -93,8 +92,7 @@ function App() {
       <Particles className="Particles" params={ParticlesParams}/>
       <div className="TopNav">
         <Logo />
-        <Navigetion />
-        <button onClick={ShowFaceBoxes}><h1>{"FaceBoxes"}</h1></button>
+        <Navigetion ShowFace={ShowFaceBoxes}/>
       </div>
       <div className="FetchImageBox">
         <Fetcher GetInput={GetInput} ChangePicUrl={ChangePicUrl}/>
