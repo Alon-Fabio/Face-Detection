@@ -6,7 +6,8 @@ import Logo from './components/Logo/Logo';
 import Fetcher from './components/Fetcher/Fetcher';
 import Image from './components/Image/Image';
 import Footer from './components/Footer/Footer';
-import PicLibrary from './components/PicLibrary/PicLibrary'
+import PicLibrary from './components/PicLibrary/PicLibrary';
+import UserInfo from './components/UserInfo/UserInfo';
 import './App.css';
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
   const [PicUrl, setPicUrl] = useState();
   const [PicArr, setPicArr] = useState([]);
   const [FaceBoxs, setFaceBoxs] = useState([]);
-  const [PicCounter, setPicCounter] = useState([]);
+  const [UserInfoObj, setUserInfoObj] = useState({UserName:"",NumberOfUp:0});
 
   const app = new Clarifai.App({
     apiKey: '3634fc260367403ca7e2a34a0b974b91'
@@ -58,40 +59,45 @@ function App() {
   function ChangePicUrl() {
     setFindPic(PicUrl);
     setPicArr(PicArr => [...PicArr, PicUrl])
-    
-    // API request to Clarefie.
-    app.models.predict("a403429f2ddf4b49b307e318f00e528b", PicUrl).then(
-    function(response) {
-      if (response.status.code !== 10000) {
-        console.log("10000");
-        alert('somthing went wrong.. please check your URL and try again');
-      }
-      const ApiBounding_box = response.rawData.outputs[0].data.regions;
-      const Boxs = ApiBounding_box.map((BoxPoints)=>{
-        return ([
-         BoxPoints.region_info.bounding_box.top_row,
-         BoxPoints.region_info.bounding_box.left_col,
-         BoxPoints.region_info.bounding_box.bottom_row,
-         BoxPoints.region_info.bounding_box.right_col
-       ]);
-     });
-      
-      UpdateFaceBox(Boxs);
-    },
-    function(err) {
-      console.log(err);
-    }
-  ).catch(err=>console.log(err));
   };
-  useEffect(()=>console.log(FaceBoxs),[FaceBoxs]);
 
-  
+        // API request to Clarefie.
+  useEffect(()=>{
+        if (PicArr.length !== 0) {
+          app.models.predict("a403429f2ddf4b49b307e318f00e528b", PicUrl).then(
+          function(response) {
+            if (response.status.code !== 10000) {
+              console.log("10000");
+              alert('somthing went wrong.. please check your URL and try again');
+            }
+            const ApiBounding_box = response.rawData.outputs[0].data.regions;
+            const Boxs = ApiBounding_box.map((BoxPoints)=>{
+              return ([
+               BoxPoints.region_info.bounding_box.top_row,
+               BoxPoints.region_info.bounding_box.left_col,
+               BoxPoints.region_info.bounding_box.bottom_row,
+               BoxPoints.region_info.bounding_box.right_col
+             ]);
+           });
+            UpdateFaceBox(Boxs);
+          },
+          function(err) {
+            console.log(err);
+          }
+        ).catch(err=>console.log(err));}
+  },[PicArr]);
+
+  const ob = {
+    UserName: "Avi",
+    NumberOfUp:1
+  }
   return (
     <div className="App">
-      <PicLibrary PictureArray={PicArr}/>
-      <Particles className="Particles" params={ParticlesParams}/>
+      {PicArr.length !== 0 ?<div><PicLibrary PictureArray={PicArr}/>
+      <Particles className="Particles" params={ParticlesParams}/></div>: <div></div>}
       <div className="TopNav">
-        <Logo />
+      {PicArr.length === 0 ?<Logo />:<Logo style={{Zindex: -1}}/>}
+        <UserInfo UserInfoObj={UserInfoObj}/>
         <Navigetion ShowFace={ShowFaceBoxes}/>
       </div>
       <div className="FetchImageBox">
