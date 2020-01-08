@@ -1,0 +1,16 @@
+.UserInfo {
+    width: 30%;
+    margin-right: 75px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.UserInfo h1 {
+    font-size: 3rem;
+}
+
+.UserInfo p {
+    font-size: 2rem;
+}
